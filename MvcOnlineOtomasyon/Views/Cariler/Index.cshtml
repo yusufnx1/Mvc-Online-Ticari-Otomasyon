@@ -1,0 +1,36 @@
+﻿@using MvcOnlineOtomasyon.Models.Sınıflar
+@model List<Cariler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainView.cshtml";
+}
+
+<div class="container">
+    <table class="table table-hover">
+        <tr>
+            <th>#</th>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>Şehir</th>
+            <th>Mail</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th>Detay</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CariId</td>
+                <td>@item.CariAd</td>
+                <td>@item.CariSoyad</td>
+                <td>@item.CariSehir</td>
+                <td>@item.CariMail</td>
+                <td><a href="/Cariler/CariSil/@item.CariId" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Cariler/CariGuncelle/@item.CariId" class="btn btn-warning">Güncelle</a></td>
+                <td><a href="/Cariler/MusteriSatis/@item.CariId" class="btn btn-dark">Satış Geçmişi</a></td>
+            </tr>
+        }
+    </table>
+    <a href="/Cariler/YeniCari" class="btn btn-info">Cari Ekle</a>
+</div>
+

@@ -1,0 +1,24 @@
+﻿@using MvcOnlineOtomasyon.Models.Sınıflar
+@model List<KargoTakip>
+@{
+    ViewBag.Title = "KargoDetay";
+    Layout = "~/Views/Shared/CariPanelView.cshtml";
+}
+
+
+<div class="container">
+    <br />
+    <table class="table table-striped">
+        <tr>
+            <th>Açıklama</th>
+            <th>Tarih</th>
+        </tr>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.Aciklama</td>
+                <td>@x.TarihZaman.ToString("dd-MM-yyyy")</td>
+            </tr>
+        }
+    </table>
+</div>

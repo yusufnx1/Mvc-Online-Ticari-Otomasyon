@@ -1,0 +1,59 @@
+﻿@using MvcOnlineOtomasyon.Models.Sınıflar
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainView.cshtml";
+}
+
+<div class="container">
+    <table id="tbl1" class="table table-hover">
+        <thead>
+            <tr>
+                <th>Ürün</th>
+                <th>Cari</th>
+                <th>Personel</th>
+                <th>Marka</th>
+                <th>Adet</th>
+                <th>Fiyat</th>
+                <th>Toplam Tutar</th>
+                <th>Tarih</th>
+                <th>Detaylar</th>
+                <th>Güncelle</th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Urun.UrunAd</td>
+                <td>@item.Cariler.CariAd @item.Cariler.CariSoyad</td>
+                <td>@item.Personel.PersonelAd @item.Personel.PersonelSoyad</td>
+                <td>@item.Urun.Marka</td>
+                <td>@item.Adet</td>
+                <td>@item.Fiyat</td>
+                <td>@item.ToplamTutar</td>
+                <td>@item.Tarih.ToString("dd-MM-yyyy")</td>
+                <td><a href="/Satislar/SatisDetay/@item.SatisHareketId" class="btn btn-outline-success">Detaylar</a></td>
+                <td><a href="/Satislar/SatisGetir/@item.SatisHareketId" class="btn btn-outline-danger">Güncelle</a></td>
+            </tr>
+        }
+    </table>
+    <a href="/Satislar/YeniSatis" class="btn btn-info">Satış Yap</a>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+
+    <link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+    <script>
+
+        $('#tbl1').dataTable({});
+
+    </script>
+</div>
+

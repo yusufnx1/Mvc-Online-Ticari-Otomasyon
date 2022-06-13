@@ -1,0 +1,27 @@
+﻿@model MvcOnlineOtomasyon.Models.Sınıflar.Personel
+@{
+    ViewBag.Title = "YeniPersonel";
+    Layout = "~/Views/Shared/_MainView.cshtml";
+}
+<div class="container">
+    <br />
+    @using (Html.BeginForm("YeniPersonel", "Personeller", FormMethod.Post, new { enctype = "multipartform-data" }))
+    {
+        <form class="form-group" method="post">
+            @Html.Label("Personel Ad")
+            @Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control" })
+            <br />
+            @Html.Label("Personel Soyad")
+            @Html.TextBoxFor(x => x.PersonelSoyad, new { @class = "form-control" })
+            <br />
+            @Html.Label("Görsel")
+            <br />
+            <input type="file" name="PersonelImage" />
+            <br />
+            @Html.Label("Departman")
+            @Html.DropDownListFor(x => x.DepartmanId, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+            <br />
+            <button class="btn btn-primary">Kaydet</button>
+        </form>
+    }
+</div>

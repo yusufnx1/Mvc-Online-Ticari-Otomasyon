@@ -1,0 +1,35 @@
+﻿@using MvcOnlineOtomasyon.Models.Sınıflar
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "SatisDetay";
+    Layout = "~/Views/Shared/_MainView.cshtml";
+}
+<div class="container">
+    <table class="table table-hover">
+        <tr>
+            <th>Satış No</th>
+            <th>Ürün</th>
+            <th>Cari</th>
+            <th>Fiyat</th>
+            <th>Adet</th>
+            <th>Toplam</th>
+            <th>Tarih</th>
+            <th>Yazdır</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.SatisHareketId</td>
+                <td>@item.Urun.UrunAd</td>
+                <td>@item.Cariler.CariAd @item.Cariler.CariSoyad</td>
+                <td>@item.Fiyat</td>
+                <td>@item.Adet</td>
+                <td>@item.ToplamTutar</td>
+                <td>@item.Tarih.ToString("dd-MM-yyyy")</td>
+
+            </tr>
+        }
+    </table>
+    <button class="btn btn-outline-dark">Yazdır</button>
+</div>
+

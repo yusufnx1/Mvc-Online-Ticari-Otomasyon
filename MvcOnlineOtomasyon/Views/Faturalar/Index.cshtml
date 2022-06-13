@@ -1,0 +1,61 @@
+﻿@using MvcOnlineOtomasyon.Models.Sınıflar
+@model List<Faturalar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainView.cshtml";
+}
+
+<div class="container">
+    <table class="table table-hover">
+        <tr>
+            <th>Seri No</th>
+            <th>Tarih / Saat</th>
+            <th>Toplam</th>
+            <th>Güncelle</th>
+            <th>Detay</th>
+            <th>Yeni Kalem</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.FaturaSeriNo - @item.FaturaSıraNo</td>
+                <td>@item.Tarih.ToString("dd-MM-yyyy") @item.Saat</td>
+                <td>@item.Toplam ₺</td>
+                <td><a href="/Faturalar/FaturaGetir/@item.FaturaId" class="btn btn-outline-success">Güncelle</a></td>
+                <td><a href="/Faturalar/FaturaDetay/@item.FaturaId" class="btn btn-outline-dark">Detay</a></td>
+                <td><a href="/Faturalar/FaturaDetay/@item.FaturaId" class="btn btn-outline-info">Kalem</a></td>
+            </tr>
+        }
+    </table>
+    <a href="/Faturalar/FaturaEkle" class="btn btn-outline-primary">Fatura Girişi</a>
+    <br />
+    <br />
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#Modal1">Popup Penceresi</button>
+</div>
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Popup Diyalog Ekranı</h2>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <td>Seri No</td>
+                        <td>Sıra No</td>
+                        <td>Tutar</td>
+                    </tr>
+                    @foreach (var x in Model)
+                    {
+                        <tr>
+                            <td>@x.FaturaSeriNo</td>
+                            <td>@x.FaturaSıraNo</td>
+                            <td>@x.Toplam</td>
+                        </tr>
+                    }
+                </table>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Vazgeç</button>
+            </div>
+        </div>
+    </div>
+</div>

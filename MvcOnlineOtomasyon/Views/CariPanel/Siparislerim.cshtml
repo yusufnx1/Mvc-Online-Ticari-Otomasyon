@@ -1,0 +1,26 @@
+﻿@using MvcOnlineOtomasyon.Models.Sınıflar
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "Siparislerim";
+    Layout = "~/Views/Shared/CariPanelView.cshtml";
+}
+
+<h2>Sipariş Geçmişi</h2>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Ürün Adı</th>
+        <th>Adet</th>
+        <th>Fiyat</th>
+        <th>Tarih</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Urun.UrunAd</td>
+            <td>@x.Adet</td>
+            <td>@x.ToplamTutar</td>
+            <td>@x.Tarih.ToString("dd-MM-yyyy")</td>
+        </tr>
+    }
+</table>

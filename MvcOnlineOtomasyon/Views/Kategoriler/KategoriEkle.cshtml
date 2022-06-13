@@ -1,0 +1,15 @@
+﻿@model MvcOnlineOtomasyon.Models.Sınıflar.Kategori
+@{
+    ViewBag.Title = "KategoriEkle";
+    Layout = "~/Views/Shared/_MainView.cshtml";
+}
+
+<div class="container" style="margin-top:20px;">
+    <form method="post" class="form-group">
+        @Html.LabelFor(x => x.KategoriAd)
+        <br />
+        @Html.TextBoxFor(x => x.KategoriAd, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-info">Kaydet</button>
+    </form>
+</div>

@@ -1,0 +1,30 @@
+﻿@model MvcOnlineOtomasyon.Models.Sınıflar.Cariler
+@{
+    ViewBag.Title = "CariGuncelle";
+    Layout = "~/Views/Shared/_MainView.cshtml";
+}
+
+@using (Html.BeginForm("CariGuncelle", "Cariler", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.CariId)
+    <br />
+    @Html.LabelFor(x => x.CariAd)
+    <br />
+    @Html.TextBoxFor(x => x.CariAd, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.CariSoyad)
+    <br />
+    @Html.TextBoxFor(x => x.CariSoyad, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.CariSehir)
+    <br />
+    @Html.TextBoxFor(x => x.CariSehir, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.CariMail)
+    <br />
+    @Html.TextBoxFor(x => x.CariMail, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-secondary">Kaydet</button>
+</div>
+}
